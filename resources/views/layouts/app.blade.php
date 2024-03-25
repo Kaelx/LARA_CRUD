@@ -54,7 +54,7 @@
         $("#success-alert").fadeTo(500, 0).slideUp(500, function(){
             $(this).remove(); 
         });
-    }, 1000);
+    }, 2000);
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

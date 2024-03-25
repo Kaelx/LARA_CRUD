@@ -22,7 +22,6 @@ class StudentController extends Controller
     
     public function store(Request $request){
         // dd($request->all());
-
         $data = $request->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -30,7 +29,6 @@ class StudentController extends Controller
         ]);
 
         $newData = Student::create($data);
-
         return redirect(route('home')) ->with('success', 'Student added successfully!');
 
     }
@@ -41,6 +39,7 @@ class StudentController extends Controller
 
     }
 
+
     public function update(Student $student, Request $request){
         $data = $request->validate([
             'name' => 'required',
@@ -49,15 +48,16 @@ class StudentController extends Controller
         ]);
 
         $student->update($data);
-
         return redirect(route('home')) ->with('success', 'Student updated successfully!');
 
     }
 
+
     public function delete(Student $student){
         $student->delete();
-
         return redirect(route('home')) ->with('success', 'Student deleted successfully!');
 
     }
+
+    
 }

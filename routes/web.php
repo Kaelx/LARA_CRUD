@@ -18,3 +18,5 @@ Route::post('/', [StudentController::class, 'store'])->name('students.store');
 Route::get('/students/{student}/edit', [StudentController::class, 'edit'])->name('students.edit');
 Route::put('/students/{student}/update', [StudentController::class, 'update'])->name('students.update');
 Route::delete('/students/{student}/delete', [StudentController::class, 'delete'])->name('students.delete');
+
+// [URL OR DIRECTORY]               --> [CONTROLLER]                            --> [ROUTE FOR VIEW]

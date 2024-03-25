@@ -15,5 +15,5 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## TO RUN THIS:
 - change the filename of '.env.example' to '.env'
-- php artisan migrate
-- php artisan serve
+- ``` php artisan migrate ```
+- ``` php artisan serve ```

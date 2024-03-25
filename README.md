@@ -14,5 +14,6 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
 ## TO RUN THIS:
+- change the filename of '.env.example' to '.env'
 - php artisan migrate
 - php artisan serve

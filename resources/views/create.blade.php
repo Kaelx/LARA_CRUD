@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div>
                 @if ($errors->any())
-                    <div class="alert alert-danger">
+                    <div id="alert" class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>

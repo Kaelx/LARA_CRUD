@@ -43,7 +43,7 @@ class StudentController extends Controller
 
         $data = $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:students,email',
             'contact' => 'required|numeric'
         ]);
 
@@ -62,7 +62,7 @@ class StudentController extends Controller
     public function update(Student $student, Request $request){
         $data = $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:students,email,'.$student->id,
             'contact' => 'required|numeric'
         ]);
 

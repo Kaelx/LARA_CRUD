@@ -8,7 +8,7 @@
         </div>
         <div>
             @if ($success = Session::get('success'))
-                <div id="success-alert" class="alert alert-success">
+                <div id="alert" class="alert alert-success">
                     {{ $success }}
                 </div>
             @endif

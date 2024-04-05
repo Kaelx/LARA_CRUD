@@ -16,7 +16,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## TO RUN THIS:
 - change the filename of '.env.example' to '.env'
 - run XAMPP and let MySql start
-- Open terminal then 'cd' the directory of the project and execute this ``` composer install ```
+- Open terminal then 'cd' the directory of the project and execute this ``` composer install ``` and ``` npm install ```
 - next, ``` php artisan key:generate ```
 - then, ``` php artisan migrate  ```
 - To start ``` npm start``` then open the link.

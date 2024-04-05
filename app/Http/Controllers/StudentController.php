@@ -7,21 +7,40 @@ use App\Models\Student;
 
 class StudentController extends Controller
 {
-    public function index(){
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+
+
+
+    //FETCH DATA FROM DATABASE
+    public function student(){
         $students = Student::all();
-        return view('home', ['students' => $students]);
-
+        return view('main',['students' => $students]);
     }
 
-
+    //GOING IN CREATE PAGE
     public function create(){
-        return view('students.create');
+        return view('create');
 
     }
 
-    
+    //STORE DATA FUNCTION
     public function store(Request $request){
         // dd($request->all());
+
         $data = $request->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -29,17 +48,17 @@ class StudentController extends Controller
         ]);
 
         $newData = Student::create($data);
-        return redirect(route('home')) ->with('success', 'Student added successfully!');
+        return redirect(route('main')) ->with('success','Data Added Successfully');
 
     }
 
-    
+    //EDIT DATA FUNCTION
     public function edit(Student $student){
-        return view('students.edit', ['student' => $student]);
-
+        return view('edit', ['student' => $student]);
     }
 
 
+    //UPDATE DATA FUNCTION
     public function update(Student $student, Request $request){
         $data = $request->validate([
             'name' => 'required',
@@ -48,16 +67,13 @@ class StudentController extends Controller
         ]);
 
         $student->update($data);
-        return redirect(route('home')) ->with('success', 'Student updated successfully!');
-
+        return redirect(route('main')) ->with('success','Data Updated Successfully');
     }
 
-
+    //DELETE DATA FUNCTION
     public function delete(Student $student){
         $student->delete();
-        return redirect(route('home')) ->with('success', 'Student deleted successfully!');
-
+        return redirect(route('main')) ->with('success','Data Deleted Successfully');
     }
 
-    
 }

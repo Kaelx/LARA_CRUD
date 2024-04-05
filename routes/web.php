@@ -1,25 +1,33 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 
+//   [ URI ]   -->   [ CONTROLLER ]   -->   [ ROUTE NAME]
 
-
-Route::get('/', [StudentController::class, 'index'])->name('home');
-
-Route::get('/about', function () {
-    return view('about');
+Route::get('/', function () {
+    return view('home');
 });
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+Auth::routes();
 
 
-Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
-Route::post('/', [StudentController::class, 'store'])->name('students.store');
-Route::get('/students/{student}/edit', [StudentController::class, 'edit'])->name('students.edit');
-Route::put('/students/{student}/update', [StudentController::class, 'update'])->name('students.update');
-Route::delete('/students/{student}/delete', [StudentController::class, 'delete'])->name('students.delete');
 
-// [URL OR DIRECTORY]               --> [CONTROLLER]                            --> [ROUTE FOR VIEW]
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/student', [StudentController::class, 'student'])->name('main');
+
+Route::get('/student/create', [StudentController::class, 'create'])->name('create');
+
+Route::post('/student/store', [StudentController::class, 'store'])->name('store');
+
+Route::get('/student/edit/{student}', [StudentController::class, 'edit'])->name('edit');
+
+Route::put('/student/update/{student}', [StudentController::class, 'update'])->name('update');
+
+Route::delete('/student/delete/{student}', [StudentController::class, 'delete'])->name('delete');
+
+
+

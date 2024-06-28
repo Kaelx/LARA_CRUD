@@ -13,9 +13,16 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+  
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
 </head>
 <body>
     <div id="app">
@@ -80,6 +87,9 @@
 </body>
 
 <script>
+    $('table').dataTable();
+
+
     window.setTimeout(function() {
         $("#alert").fadeTo(500, 0).slideUp(500, function(){
             $(this).remove(); 

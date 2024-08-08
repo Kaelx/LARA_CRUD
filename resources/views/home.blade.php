@@ -23,6 +23,9 @@
                         <div class="card bg-primary text-center m-4">
                             <a href="{{route('main')}}" class="text-white">STUDENT DATA</a>
                         </div>
+                        <div class="card bg-danger text-center m-4">
+                            <a href="{{route('test')}}" class="text-white">TEST</a>
+                        </div>
                     @endguest
                 </div>
             </div>

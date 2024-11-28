@@ -12,6 +12,8 @@ class StudentController extends Controller
      *
      * @return void
      */
+
+    //Check if its LOGGED IN or NOT
     public function __construct()
     {
         $this->middleware('auth');
@@ -26,19 +28,21 @@ class StudentController extends Controller
 
 
     //FETCH DATA FROM DATABASE
-    public function student(){
+    public function student()
+    {
         $students = Student::all();
-        return view('main',['students' => $students]);
+        return view('main', ['students' => $students]);
     }
 
     //GOING IN CREATE PAGE
-    public function create(){
+    public function create()
+    {
         return view('create');
-
     }
 
     //STORE DATA FUNCTION
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         // dd($request->all());
 
         $data = $request->validate([
@@ -48,32 +52,33 @@ class StudentController extends Controller
         ]);
 
         $newData = Student::create($data);
-        return redirect(route('main')) ->with('success','Data Added Successfully');
-
+        return redirect(route('main'))->with('success', 'Data Added Successfully');
     }
 
-    //EDIT DATA FUNCTION
-    public function edit(Student $student){
+    //GOIN IN EDIT DATA
+    public function edit(Student $student)
+    {
         return view('edit', ['student' => $student]);
     }
 
 
     //UPDATE DATA FUNCTION
-    public function update(Student $student, Request $request){
+    public function update(Student $student, Request $request)
+    {
         $data = $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:students,email,'.$student->id,
+            'email' => 'required|email|unique:students,email,' . $student->id,
             'contact' => 'required|numeric'
         ]);
 
         $student->update($data);
-        return redirect(route('main')) ->with('success','Data Updated Successfully');
+        return redirect(route('main'))->with('success', 'Data Updated Successfully');
     }
 
     //DELETE DATA FUNCTION
-    public function delete(Student $student){
+    public function delete(Student $student)
+    {
         $student->delete();
-        return redirect(route('main')) ->with('success','Data Deleted Successfully');
+        return redirect(route('main'))->with('success', 'Data Deleted Successfully');
     }
-
 }

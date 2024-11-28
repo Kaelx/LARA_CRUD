@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 
@@ -27,6 +29,3 @@ Route::delete('/student/delete/{student}', [StudentController::class, 'delete'])
 
 
 Route::get('/test', [HomeController::class, 'test'])->name('test');
-
-
-
